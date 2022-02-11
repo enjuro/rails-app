@@ -1,0 +1,14 @@
+<h1>画像投稿フォーム</h1>
+<%= form_with model: @post_image, local:true do |f| %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  <h4>難易度</h4>
+  <%= f.text_field :grade %>
+  <h4>ホールドの色</h4>
+  <%= f.text_field :color %>
+  <h4>壁のエリア（角度/種類）</h4>
+  <%= f.text_field :wall_degree %>
+  <h4>説明</h4>
+  <%= f.text_area :caption %>
+  <%= f.submit '投稿' %>
+<% end %>
