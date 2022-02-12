@@ -1,4 +1,7 @@
 class PostImagesController < ApplicationController
+
+    before_action :redirect_root, only: [:new, :create, :edit]
+
     def new
         @post_image = PostImage.new
     end
@@ -19,10 +22,16 @@ class PostImagesController < ApplicationController
 
     def destroy
     end
+
     private
 
     def post_image_params
-      params.require(:post_image).permit(:grade, :color, :wall_degree, :image, :caption)
+        params.require(:post_image).permit(:grade, :color, :wall_degree, :image, :caption)
     end
+
+    def redirect_root
+        redirect_to root_path unless admin_signed_in?
+    end
+
 end
 

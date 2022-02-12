@@ -1,10 +1,9 @@
 <% @post_images.each do |post_image| %>
-<div>
-  <%= attachment_image_tag post_image, :image %>
-  <p>難易度：<%= post_image.grade %></p>
-  <p>色：<%= post_image.color %></p>
-  <p>壁：<%= post_image.wall_degree %></p>
-  <p>説明：<%= post_image.caption %></p>
-
-</div>
+    <div>
+        <%= attachment_image_tag post_image, :image %>
+        <p>難易度：<%= post_image.grade %></p>
+        <p>色：<%= post_image.color %></p>
+        <p>壁：<%= post_image.wall_degree %></p>
+        <p>説明：<%= post_image.caption %></p>
+    </div>
 <% end %>
