@@ -10,6 +10,26 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    ようこそ、ユーザーの<%= current_user.name %>　さん
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+    <% elsif admin_signed_in? %>
+    ようこそ、 アドミンの<%= current_admin.name %>さん
+      <li>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+    <% else %>
+    ジム運営関係者の方はこちら
+      <li>
+        <%= link_to "登録はこちら", new_admin_registration_path %>
+      </li>
+      <li>
+        <%= link_to "関係者ログイン", new_admin_session_path %>
+      </li>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
