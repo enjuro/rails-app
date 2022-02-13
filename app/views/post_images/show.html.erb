@@ -2,7 +2,7 @@
     <%= attachment_image_tag @post_image, :image %>
     <p>難易度：<%= @post_image.grade %></p>
     <p>色：<%= @post_image.color %></p>
-    <p>壁：<%= @post_image.wall_degree %></p>
+    <p>壁：<%= @post_image.wall_type %></p>
     <p>説明：<%= @post_image.caption %></p>
     <% if @post_image.admin == current_admin %>
         <%= link_to "削除", post_image_path(@post_image), method: :delete %>
