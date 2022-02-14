@@ -9,28 +9,18 @@
     <% end %>
 </div>
 
+
+<div id="favorite_btn_<%= @post_image.id %>">
+    <%= render 'favorites/favorite', post_image: @post_image %>
+</div>
+
 <% if user_signed_in? %>
-    <% if @post_image.favorited_by?(current_user) %>
-        <p>
-        <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
-            ♥<%= @post_image.favorites.count %> いいね
-        <% end %>
-        </p>
-        <% else %>
-        <p>
-        <%= link_to post_image_favorites_path(@post_image), method: :post do %>
-            ♡<%= @post_image.favorites.count %> いいね
-        <% end %>
-        </p>
-    <% end %>
     <div>
         <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
             <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-            <%= f.submit "送信する" %>
+            <%= f.submit "送信する", class: 'btn btn-default', data: { disable_with: '送信中…' } %>
         <% end %>
     </div>
-<% else %>
-    <p>いいね数：<%= @post_image.favorites.count %></p>
 <% end %>
 
 <div>
@@ -45,4 +35,5 @@
     <% end %>
 <% end %>
 </div>
+
 <%= link_to "課題一覧", post_images_path %>
