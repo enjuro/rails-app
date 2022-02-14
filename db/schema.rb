@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2022_02_13_052121) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.string "gym"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_02_13_052121) do
   create_table "post_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image_id"
     t.text "caption"
-    t.integer "grade"
+    t.string "grade"
     t.string "color"
     t.string "wall_type"
     t.integer "admin_id"
