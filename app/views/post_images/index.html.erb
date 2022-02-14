@@ -1,15 +1,18 @@
-<% @post_images.each do |post_image| %>
-    <div>
-        <%= link_to post_image_path(post_image.id) do %>
-            <%= attachment_image_tag post_image, :image %>
-            <p>難易度：<%= grade_hash[post_image.grade] %></p>
-            <p>色：<%= post_image.color %></p>
-            <p>壁の種類：<%= wall_type_hash[post_image.wall_type] %></p>
-            <p>説明：<%= post_image.caption %></p>
-            <p>コメント数：<%=post_image.post_comments.count %></p>
-            <p>いいね数：<%= post_image.favorites.count %></p>
-
-        <% end %>
-    </div>
-<% end %>
 <%= link_to "課題投稿", new_post_image_path %>
+
+<div class="scroll-list jscroll">
+    <% @post_images.each do |post_image| %>
+        <div>
+            <%= link_to post_image_path(post_image.id) do %>
+                <%= attachment_image_tag post_image, :image %>
+                <p>難易度：<%= grade_hash[post_image.grade] %></p>
+                <p>色：<%= post_image.color %></p>
+                <p>壁の種類：<%= wall_type_hash[post_image.wall_type] %></p>
+                <p>説明：<%= post_image.caption %></p>
+                <p>コメント数：<%=post_image.post_comments.count %></p>
+                <p>いいね数：<%= post_image.favorites.count %></p>
+            <% end %>
+        </div>
+    <% end %>
+    <%= paginate @post_images %>
+</div>
