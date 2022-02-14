@@ -7,7 +7,9 @@
             <p>壁の種類：<%= wall_type_hash[post_image.wall_type] %></p>
             <p>説明：<%= post_image.caption %></p>
             <p>コメント数：<%=post_image.post_comments.count %></p>
+            <p>いいね数：<%= post_image.favorites.count %></p>
 
         <% end %>
     </div>
 <% end %>
+<%= link_to "課題投稿", new_post_image_path %>
