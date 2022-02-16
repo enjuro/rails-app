@@ -1,8 +1,4 @@
 module PostImagesHelper
-    def list
-        {a: "aaa", b: "bbb", c: "ccc"}
-    end
-
     def grade_hash
         {"8Q" => "8級",
         "7Q" => "7級",
@@ -12,7 +8,7 @@ module PostImagesHelper
         "3Q" => "3級",
         "2Q" => "2級",
         "1Q" => "1級",
-        "1D" => "1段",
+        "1D" => "初段",
         "2D" => "2段",
         "3D" => "3段"}
     end

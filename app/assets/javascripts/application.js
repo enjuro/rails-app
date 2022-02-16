@@ -18,6 +18,9 @@
 //= require turbolinks
 //= require_tree .
 
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 $(window).on('scroll', function() {
     scrollHeight = $(document).height();
     scrollPosition = $(window).height() + $(window).scrollTop();

@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.1'
 gem "devise"
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+gem 'bootstrap', '~> 4.5'
+gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'
 gem 'kaminari'
 # Use mysql as the database for Active Record
