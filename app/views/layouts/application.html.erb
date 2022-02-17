@@ -4,7 +4,7 @@
     <title>App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -23,6 +23,9 @@
     ようこそ、ユーザーの<%= current_user.name %>さん
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to 'マイページ', user_path(current_user.id) %>
       </li>
     <% elsif admin_signed_in? %>
     ようこそ、 アドミンの<%= current_admin.name %>さん

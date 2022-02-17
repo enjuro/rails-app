@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   root "homes#top"
   get "post_images" => "post_images#index"
   devise_for :admins, controllers: {
@@ -14,5 +15,14 @@ Rails.application.routes.draw do
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
+  end
+  resources :users, only: [:show, :edit, :update] do
+    resources :post_comments
+  end
+
+  resources :users do
+    member do
+      get :favorites
+    end
   end
 end
