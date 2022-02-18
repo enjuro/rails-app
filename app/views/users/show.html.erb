@@ -4,6 +4,9 @@
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 <% end %>
 
+<p> <%= @user.name %> </p>
+<p> <%= @user.bio %> </p>
+
 いいねした課題一覧
     <% @favorite_post_images.each do |post_image| %>
         <div>
