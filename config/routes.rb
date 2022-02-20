@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
   root "homes#top"
   get "post_images" => "post_images#index"
   devise_for :admins, controllers: {
