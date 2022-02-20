@@ -19,7 +19,9 @@ ActiveRecord::Schema.define(version: 2022_02_14_005754) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.string "profile_image_id"
     t.string "gym"
+    t.text "url"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,6 +34,9 @@ ActiveRecord::Schema.define(version: 2022_02_14_005754) do
     t.integer "post_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["post_image_id"], name: "index_favorites_on_post_image_id"
+    t.index ["user_id", "post_image_id"], name: "index_favorites_on_user_id_and_post_image_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "post_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -49,6 +54,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_005754) do
     t.string "color"
     t.string "wall_type"
     t.integer "admin_id"
+    t.date "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_005754) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.string "profile_image_id"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

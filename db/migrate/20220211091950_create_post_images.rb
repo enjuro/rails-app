@@ -7,6 +7,7 @@ class CreatePostImages < ActiveRecord::Migration[5.2]
       t.string :color
       t.string :wall_type
       t.integer :admin_id
+      t.date :duration
 
       t.timestamps
     end

@@ -5,10 +5,9 @@ class CreateFavorites < ActiveRecord::Migration[5.2]
       t.integer :post_image_id
 
       t.timestamps
-
-      add_index :favorites, :user_id
-      add_index :favorites, :post_image_id
-      add_index :favorites, [:user_id, :post_image_id], unique: true
     end
+    add_index :favorites, :user_id
+    add_index :favorites, :post_image_id
+    add_index :favorites, [:user_id, :post_image_id], unique: true
   end
 end
