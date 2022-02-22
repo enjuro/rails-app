@@ -7,6 +7,8 @@
 
 <p> <%= attachment_image_tag @admin, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%> </p>
 <p> <%= @admin.name %> </p>
+<p> <%= @admin.gym %> </p>
+<p> <%= @admin.url %> </p>
 <p> <%= @admin.bio %> </p>
 
 <% @post_images.each do |post_image| %>

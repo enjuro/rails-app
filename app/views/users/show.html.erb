@@ -8,6 +8,8 @@
 <p> <%= @user.name %> </p>
 <p> <%= @user.bio %> </p>
 
+<%= render 'mutual/show', user: @user %>
+
 いいねした課題一覧
     <% @favorite_post_images.each do |post_image| %>
         <div>
