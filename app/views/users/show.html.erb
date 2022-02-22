@@ -4,6 +4,7 @@
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 <% end %>
 
+<p> <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.png"%> </p>
 <p> <%= @user.name %> </p>
 <p> <%= @user.bio %> </p>
 
@@ -16,6 +17,7 @@
                 <p>色：<%= post_image.color %></p>
                 <p>壁の種類：<%= wall_type_hash[post_image.wall_type] %></p>
                 <p>説明：<%= post_image.caption %></p>
+                <p>課題掲載期間：<%= post_image.duration %>
                 <p>コメント数：<%=post_image.post_comments.count %></p>
                 <p>いいね数：<%= post_image.favorites.count %></p>
 

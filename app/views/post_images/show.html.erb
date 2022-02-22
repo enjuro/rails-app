@@ -4,6 +4,7 @@
     <p>色：<%= @post_image.color %></p>
     <p>壁：<%= wall_type_hash[@post_image.wall_type] %></p>
     <p>説明：<%= @post_image.caption %></p>
+    <p>課題の期間：<%= @post_image.duration %>まで</p>
     <% if @post_image.admin == current_admin %>
         <%= link_to "削除", post_image_path(@post_image), method: :delete %>
     <% end %>

@@ -4,12 +4,17 @@
   <%= render "admins/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name %>
   </div>
 
-    <div class="field">
+  <div class="field">
     <%= f.label :gym %><br />
-    <%= f.text_field :gym, autofocus: true %>
+    <%= f.text_field :gym %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
   </div>
 
 
@@ -32,7 +37,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", data: { disable_with: '送信中...' } %>
   </div>
 <% end %>
 
