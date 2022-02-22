@@ -5,6 +5,7 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :post_images, dependent: :destroy
 
-  validates :name, presence: true
+  attachment :profile_image
 
+  validates :name, presence: true
 end

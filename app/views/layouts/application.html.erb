@@ -32,6 +32,9 @@
       <li>
         <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
       </li>
+    <li>
+      <%= link_to '運営者マイページ', admin_path(current_admin.id) %>
+    </li>
     <% else %>
     ジム運営関係者の方はこちら
       <li>
