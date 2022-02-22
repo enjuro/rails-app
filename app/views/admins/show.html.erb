@@ -1,0 +1,25 @@
+<h1>Admins#show</h1>
+<p>Find me in app/views/admins/show.html.erb</p>
+
+<% if @admin.id == current_admin.id %>
+    <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
+<% end %>
+
+<p> <%= attachment_image_tag @admin, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%> </p>
+<p> <%= @admin.name %> </p>
+<p> <%= @admin.bio %> </p>
+
+<% @post_images.each do |post_image| %>
+    <div>
+
+        <%= attachment_image_tag post_image, :image, width: '10%', height: '10%' %>
+        <p>難易度：<%= grade_hash[post_image.grade] %></p>
+        <p>色：<%= post_image.color %></p>
+        <p>壁の種類：<%= wall_type_hash[post_image.wall_type] %></p>
+        <p>説明：<%= post_image.caption %></p>
+        <p>課題掲載期間：<%= post_image.duration %>
+        <p>コメント数：<%=post_image.post_comments.count %></p>
+        <p>いいね数：<%= post_image.favorites.count %></p>
+
+    </div>
+<% end %>
