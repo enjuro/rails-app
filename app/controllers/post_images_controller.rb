@@ -17,7 +17,7 @@ class PostImagesController < ApplicationController
     end
 
     def index
-        @post_images = PostImage.order(created_at: :desc).page(params[:page]).per(3)
+        @post_images = PostImage.order(created_at: :desc).page(params[:page]).per(2)
     end
 
     def show
