@@ -4,7 +4,6 @@
     <div id="favorite_btn_<%= @post_image.id %>">
         <%= render 'favorites/favorite', post_image: @post_image %>
     </div>
-
     <div>
         <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
             <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
@@ -13,7 +12,6 @@
     </div>
 <% elsif %>
     <p>いいね件数：<%= @post_image.favorites.count %></p>
-
 <% end %>
 
 <div>
