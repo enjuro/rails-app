@@ -1,19 +1,9 @@
-<div>
-    <%= attachment_image_tag @post_image, :image %>
-    <p>難易度：<%= grade_hash[@post_image.grade] %></p>
-    <p>色：<%= @post_image.color %></p>
-    <p>壁：<%= wall_type_hash[@post_image.wall_type] %></p>
-    <p>説明：<%= @post_image.caption %></p>
-    <p>課題の期間：<%= @post_image.duration %>まで</p>
-    <% if @post_image.admin == current_admin %>
-        <%= link_to "削除", post_image_path(@post_image), method: :delete %>
-    <% end %>
-</div>
+<%= render 'post_images/list', post_image: @post_image %>
 
 <% if user_signed_in? %>
-<div id="favorite_btn_<%= @post_image.id %>">
-    <%= render 'favorites/favorite', post_image: @post_image %>
-</div>
+    <div id="favorite_btn_<%= @post_image.id %>">
+        <%= render 'favorites/favorite', post_image: @post_image %>
+    </div>
     <div>
         <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
             <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
@@ -22,7 +12,6 @@
     </div>
 <% elsif %>
     <p>いいね件数：<%= @post_image.favorites.count %></p>
-
 <% end %>
 
 <div>

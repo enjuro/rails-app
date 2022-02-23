@@ -7,19 +7,12 @@
 
 <p> <%= attachment_image_tag @admin, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%> </p>
 <p> <%= @admin.name %> </p>
+<p> <%= @admin.gym %> </p>
+<p> <%= @admin.url %> </p>
 <p> <%= @admin.bio %> </p>
 
 <% @post_images.each do |post_image| %>
-    <div>
-
-        <%= attachment_image_tag post_image, :image, width: '10%', height: '10%' %>
-        <p>難易度：<%= grade_hash[post_image.grade] %></p>
-        <p>色：<%= post_image.color %></p>
-        <p>壁の種類：<%= wall_type_hash[post_image.wall_type] %></p>
-        <p>説明：<%= post_image.caption %></p>
-        <p>課題掲載期間：<%= post_image.duration %>
-        <p>コメント数：<%=post_image.post_comments.count %></p>
-        <p>いいね数：<%= post_image.favorites.count %></p>
-
-    </div>
+    <%= link_to post_image_path(post_image.id) do %>
+        <%= render 'post_images/list', post_image: post_image %>
+    <% end %>
 <% end %>
