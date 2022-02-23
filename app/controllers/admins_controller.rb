@@ -17,7 +17,7 @@ class AdminsController < ApplicationController
   private
 
   def admin_params
-    params.require(:admin).permit(:name, :profile_image,:gym, :url, :bio)
+    params.require(:admin).permit(:name, :profile_image, :gym, :url, :bio)
   end
 end
 

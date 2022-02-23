@@ -8,4 +8,5 @@ class Admin < ApplicationRecord
   attachment :profile_image
 
   validates :name, presence: true
+  validates :gym, presence: true
 end
