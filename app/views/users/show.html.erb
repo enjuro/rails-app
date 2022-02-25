@@ -10,9 +10,11 @@
 
 
 いいねした課題一覧
-<% @favorite_post_images.each do |post_image| %>
-    <%= link_to post_image_path(post_image.id) do %>
-        <%= render 'post_images/list', post_image: post_image %>
+<div class="scroll-list jscroll">
+    <% @favorite_post_images.each do |post_image| %>
+        <%= link_to post_image_path(post_image.id) do %>
+            <%= render 'post_images/list', post_image: post_image %>
+        <% end %>
     <% end %>
-<% end %>
+</div>
 
