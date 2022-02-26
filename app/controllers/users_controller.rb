@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).order(created_at: :desc).pluck(:post_image_id)
     @favorite_post_images = PostImage.find(favorites)
+    @following_admins = @admin.following_user
   end
 
   def edit
@@ -15,10 +16,6 @@ class UsersController < ApplicationController
     redirect_to user_path(@user.id)
   end
 
-  def follows
-    admin = Admin.find(params[:id])
-    @admins = admin.following_user.page(params[:page]).per(3).reverse_order
-  end
 
 
   private

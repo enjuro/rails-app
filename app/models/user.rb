@@ -14,18 +14,4 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  def follow(admin_id)
-    follower.create(followed_id: admin_id)
-  end
-
-  # ユーザーのフォローを外す
-  def unfollow(admin_id)
-    follower.find_by(followed_id: admin_id).destroy
-  end
-
-  # フォローしていればtrueを返す
-  def following?(admin)
-    following_admin.include?(admin)
-  end
-
 end

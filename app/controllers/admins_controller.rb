@@ -2,7 +2,7 @@ class AdminsController < ApplicationController
   def show
     @admin = Admin.find(params[:id])
     @post_images = @admin.post_images.page(params[:page]).reverse_order
-    @follower_users = @user.follower_user
+
   end
 
   def edit
@@ -16,15 +16,10 @@ class AdminsController < ApplicationController
   end
 
 
-  def followers
-    user = User.find(params[:id])
-    @users = user.follower_user.page(params[:page]).per(3).reverse_order
-  end
-
   private
 
   def admin_params
-    params.require(:admin).permit(:name, :profile_image, :gym, :url, :bio)
+    params.require(:admin).permit(:profile_image, :gym, :url, :bio)
   end
 end
 
