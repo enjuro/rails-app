@@ -20,7 +20,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :post_comments
   end
-  resources :admins, only: [:show, :edit, :update]
+
+  resources :admins, only: [:show, :edit, :update] do
+    member do
+      get :followers
+    end
+  end
 
   resources :users do
     member do

@@ -1,7 +1,5 @@
 <h2>プロフィール編集</h2>
 <%= form_with model:@admin, local:true do |f| %>
-    <p><label for="inputName">Name</label></p>
-    <p><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></p>
     <p><%= attachment_image_tag @admin, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></p>
     <p><label for="inputImage">ProfileImage</label></p>
     <p><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></p>
