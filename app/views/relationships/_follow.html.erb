@@ -1,0 +1,9 @@
+<% if admin.followed_by?(current_user) %>
+    <%= link_to admin_relationships_path(admin), method: :delete, remote: true, class: "follow_btn" do %>
+        👍<%= admin.relationships.count %> フォロー解除
+    <% end %>
+<% else %>
+    <%= link_to admin_relationships_path(admin), method: :post, remote: true, class: "follow_btn" do %>
+        👐<%= admin.relationships.count %> フォローする
+    <% end %>
+<% end %>
