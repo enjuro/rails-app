@@ -9,12 +9,13 @@
 <% end %>
 
 
-いいねした課題一覧
+<h2>いいねした課題一覧</h2>
 <div class="scroll-list jscroll">
     <% @favorite_post_images.each do |post_image| %>
-        <%= link_to post_image_path(post_image.id) do %>
+        <div class="card w-50 mx-auto mt-4 shadow-lg">
+            <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
             <%= render 'post_images/list', post_image: post_image %>
-        <% end %>
+        </div>
     <% end %>
 </div>
 

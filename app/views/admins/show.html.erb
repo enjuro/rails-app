@@ -1,7 +1,6 @@
-<h1>ジム詳細ページ</h1>
+<h1><%= @admin.gym %></h1>
 
 <p> <%= attachment_image_tag @admin, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%> </p>
-<p>ジム名称：<%= @admin.gym %> </p>
 <p>ジム公式サイト：<%= @admin.url %> </p>
 <p>紹介文：<%= @admin.bio %> </p>
 
@@ -15,12 +14,13 @@
     </div>
 <% end %>
 
-投稿した課題
+<h2>このジムにある課題</h2>
 <div class="scroll-list jscroll">
     <% @post_images.each do |post_image| %>
-        <%= link_to post_image_path(post_image.id) do %>
+        <div class="card w-50 mx-auto mt-4 shadow-lg">
+            <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
             <%= render 'post_images/list', post_image: post_image %>
-        <% end %>
+        </div>
     <% end %>
     <%= paginate @post_images %>
 </div>

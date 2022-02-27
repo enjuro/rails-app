@@ -1,6 +1,4 @@
-<div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to post_image_path(post_image.id) do %>
-    <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
+<%= link_to post_image_path(post_image.id) do %>
         <div class="card-body">
             <table class="table">
                 <tr><th>難易度</th> <th><%= grade_hash[post_image.grade] %></tr>
@@ -12,6 +10,6 @@
                 <tr><th>いいね数</th> <th><%= post_image.favorites.count %><th></tr>
             </table>
         </div>
-    <% end %>
-    <p>@<%= link_to post_image.admin.gym, post_image.admin %></p>
-</div>
+<% end %>
+<h3>@<%= link_to post_image.admin.gym, post_image.admin %></h3>
+

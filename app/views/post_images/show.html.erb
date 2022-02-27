@@ -1,9 +1,12 @@
 <div class="row">
-    <div class="col-9">
-        <%= render 'post_images/list', post_image: @post_image %>
+    <%= attachment_image_tag @post_image, :image, class:"card-img-top" %>
+    <div class="col-md-8">
+        <div class="card w-50 mx-auto mt-4 shadow-lg">
+            <%= render 'post_images/list', post_image: @post_image %>
+        </div>
     </div>
 
-    <div class="col-3">
+    <div class="col-md-4">
         <% if user_signed_in? %>
             <div id="favorite_btn_<%= @post_image.id %>">
                 <%= render 'favorites/favorite', post_image: @post_image %>
@@ -15,11 +18,11 @@
                 <% end %>
             </div>
         <% elsif %>
-            <p>いいね件数：<%= @post_image.favorites.count %></p>
+            <p><%= @post_image.favorites.count %> いいね</p>
         <% end %>
 
         <div>
-        <p>コメント件数：<%= @post_image.post_comments.count %></p>
+        <p><%= @post_image.post_comments.count %> コメント</p>
         <% @post_image.post_comments.reverse.each do |post_comment| %>
             <p><%= post_comment.user.name %></p>
             <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
