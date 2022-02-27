@@ -2,7 +2,6 @@ class AdminsController < ApplicationController
   def show
     @admin = Admin.find(params[:id])
     @post_images = @admin.post_images.page(params[:page]).reverse_order
-
   end
 
   def edit

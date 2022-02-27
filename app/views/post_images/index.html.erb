@@ -5,7 +5,7 @@
         <%= link_to post_image_path(post_image.id) do %>
             <%= render 'post_images/list', post_image: post_image %>
         <% end %>
-        <p>課題投稿者：<%= post_image.admin.name %> ＠ <%= link_to post_image.admin.gym, post_image.admin.url %></p>
+        <p>＠<%= link_to post_image.admin.gym, post_image.admin %></p>
     <% end %>
     <%= paginate @post_images %>
 </div>

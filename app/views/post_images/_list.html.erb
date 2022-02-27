@@ -1,5 +1,5 @@
 <div>
-    <%= attachment_image_tag post_image, :image %>
+    <%= attachment_image_tag post_image, :image, :fill, 400, 400 %>
     <p>難易度：<%= grade_hash[post_image.grade] %></p>
     <p>色：<%= post_image.color %></p>
     <p>壁の種類：<%= wall_type_hash[post_image.wall_type] %></p>

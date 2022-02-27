@@ -1,9 +1,15 @@
 <h1>Admins#show</h1>
 <p>Find me in app/views/admins/show.html.erb</p>
 
-<% if @admin.id == current_admin.id %>
-    <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
+
+<% if admin_signed_in? %>
+    <% if @admin.id == current_admin.id %>
+        <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
+    <% end %>
+<% elsif user_signed_in? %>
+followして
 <% end %>
+
 
 <p> <%= attachment_image_tag @admin, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%> </p>
 
