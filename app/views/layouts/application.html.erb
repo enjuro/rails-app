@@ -21,40 +21,44 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
 
+              <li class="nav-item">
+                <%= link_to "課題一覧", post_images_path, class: 'nav-link text-dark' %>
+              </li>
+
             <% if user_signed_in? %>
 
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
-            </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+              </li>
 
             <% elsif admin_signed_in? %>
 
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to '投稿フォーム', new_post_image_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'マイページ', admin_path(current_admin.id), class: 'nav-link text-dark' %>
-            </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '投稿フォーム', new_post_image_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'マイページ', admin_path(current_admin.id), class: 'nav-link text-dark' %>
+              </li>
 
             <% else %>
-            <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ジム関係者新規登録", new_admin_registration_path, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ジム関係者ログイン", new_admin_session_path, class: 'nav-link text-dark' %>
-            </li>
+              <li class="nav-item">
+                <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ジム関係者新規登録", new_admin_registration_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ジム関係者ログイン", new_admin_session_path, class: 'nav-link text-dark' %>
+              </li>
             <% end %>
             </ul>
           </div>
@@ -62,22 +66,21 @@
       </nav>
     </header>
     <main class="mb-auto">
+    <div class="center jumbotron" >
     <%= yield %>
+    </div>
     </main>
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-md-4">
-            <p>ボルダリングジムの課題にフォーカスを当てたプラットフォーム</p>
-          </div>
           <div class="col-md-8">
             <h6 class="text-white mt-2 mb-3">Links</h6>
             <ul class="p-0 list-unstyled">
               <li>
-                <a href="/" title="Home" class="text-white-50">Home</a>
+                <a href="/" title="Home" class="text-white-50">トップページ</a>
               </li>
               <li>
-                <a href="/homes/about" title="About" class="text-white-50">About</a>
+                <a href="/homes/about" title="About" class="text-white-50">このアプリについて</a>
               </li>
             </ul>
           </div>
