@@ -1,22 +1,36 @@
-<h1>トップページ</h1>
 
 <% if user_signed_in? %>
-    <h6>課題を見てみましょう</h6>
-    <%= link_to "課題一覧", post_images_path %>
+    <h5>課題を探してみましょう！</h5>
+    <p>
+        <%= link_to "課題一覧", post_images_path,class: "btn btn-sm btn-primary" %>
+    </p>
 <% elsif admin_signed_in? %>
-
-    <h6>課題を見てみましょう</h6>
-    <%= link_to "課題一覧", post_images_path %>
-
-    <h6>課題を追加しましょう</h6>
-    <%= link_to "課題投稿", new_post_image_path %>
-
+    <h5>課題を見てみましょう！</h5>
+    <p>
+        <%= link_to "課題一覧", post_images_path,class: "btn btn-sm btn-primary" %>
+    </p>
+    <h5>自分のジムの課題を追加しましょう！</h5>
+    <p>
+    <%= link_to "課題投稿", new_post_image_path,class: "btn btn-sm btn-primary" %>
+    </p>
 <% else %>
-    <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-    </li>
-    <li>
-        <%= link_to "ログイン", new_user_session_path %>
-    </li>
-<% end %>
+    <h5>一般ユーザーの方はこちらから登録をして、<br>ジムの課題にコメントを残したり、いいねしてみましょう！</h5>
+    <p>
+        <%= link_to "新規登録", new_user_registration_path,class: "btn btn-sm btn-primary" %>
+    </p>
+    <p>
+        <%= link_to "ログイン", new_user_session_path,class: "btn btn-sm btn-primary" %>
+    </p>
 
+    <br>
+
+    <h5>ジム関係者の方はこちらから登録をして、<br>自分のジムの課題を投稿に対するユーザーからの反応を見てみましょう！<h5>
+    <h6>※アカウント作成は１店舗１つまででお願いします。</h6>
+    <p>
+        <%= link_to "ジム関係者 新規登録", new_admin_registration_path,class: "btn btn-sm btn-secondary" %>
+    </p>
+    <p>
+        <%= link_to "ジム関係者 ログイン", new_admin_session_path,class: "btn btn-sm btn-secondary" %>
+    </p>
+
+<% end %>

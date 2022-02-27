@@ -1,6 +1,9 @@
-<h1>Admins#show</h1>
-<p>Find me in app/views/admins/show.html.erb</p>
+<h1>ジム関係者 マイページ</h1>
 
+<p> <%= attachment_image_tag @admin, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%> </p>
+<p>ジム名称：<%= @admin.gym %> </p>
+<p>ジム公式サイト：<%= @admin.url %> </p>
+<p>紹介文：<%= @admin.bio %> </p>
 
 <% if admin_signed_in? %>
     <% if @admin.id == current_admin.id %>
@@ -12,15 +15,12 @@
     </div>
 <% end %>
 
-
-<p> <%= attachment_image_tag @admin, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%> </p>
-
-<p> <%= @admin.gym %> </p>
-<p> <%= @admin.url %> </p>
-<p> <%= @admin.bio %> </p>
-
-<% @post_images.each do |post_image| %>
-    <%= link_to post_image_path(post_image.id) do %>
-        <%= render 'post_images/list', post_image: post_image %>
+投稿した課題
+<div class="scroll-list jscroll">
+    <% @post_images.each do |post_image| %>
+        <%= link_to post_image_path(post_image.id) do %>
+            <%= render 'post_images/list', post_image: post_image %>
+        <% end %>
     <% end %>
-<% end %>
+    <%= paginate @post_images %>
+</div>
