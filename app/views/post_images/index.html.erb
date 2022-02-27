@@ -3,11 +3,10 @@
 <% end %>
 
 <div class="scroll-list jscroll">
+    <div class="card-list-container py-5">
     <% @post_images.each do |post_image| %>
-        <%= link_to post_image_path(post_image.id) do %>
-            <%= render 'post_images/list', post_image: post_image %>
-        <% end %>
-        <h5>@<%= link_to post_image.admin.gym, post_image.admin %></h5>
+        <%= render 'post_images/list', post_image: post_image %>
     <% end %>
     <%= paginate @post_images %>
+    </div>
 </div>

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "homes#top"
   get 'admins/show'
   get "homes/about" => "homes#about"
+  get "homes/links" => "homes#links"
   get "post_images" => "post_images#index"
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
