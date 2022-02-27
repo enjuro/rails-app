@@ -1,30 +1,35 @@
-<%= render 'post_images/list', post_image: @post_image %>
-
-<% if user_signed_in? %>
-    <div id="favorite_btn_<%= @post_image.id %>">
-        <%= render 'favorites/favorite', post_image: @post_image %>
+<div class="row">
+    <div class="col-9">
+        <%= render 'post_images/list', post_image: @post_image %>
     </div>
-    <div>
-        <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-            <%= f.submit "送信する", class: 'btn btn-default', data: { disable_with: '送信中…' } %>
+
+    <div class="col-3">
+        <% if user_signed_in? %>
+            <div id="favorite_btn_<%= @post_image.id %>">
+                <%= render 'favorites/favorite', post_image: @post_image %>
+            </div>
+            <div>
+                <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
+                    <%= f.text_area :comment, rows:'5',placeholder: "コメントを書く" %><br>
+                    <%= f.submit "送信する", class: 'btn btn-sm btn-primary', data: { disable_with: '送信中…' } %>
+                <% end %>
+            </div>
+        <% elsif %>
+            <p>いいね件数：<%= @post_image.favorites.count %></p>
         <% end %>
-    </div>
-<% elsif %>
-    <p>いいね件数：<%= @post_image.favorites.count %></p>
-<% end %>
 
-<div>
-<p>コメント件数：<%= @post_image.post_comments.count %></p>
-<% @post_image.post_comments.each do |post_comment| %>
-    <%= post_comment.user.name %>
-    <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-    <% if post_comment.user == current_user %>
-    <div>
-        <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+        <div>
+        <p>コメント件数：<%= @post_image.post_comments.count %></p>
+        <% @post_image.post_comments.reverse.each do |post_comment| %>
+            <p><%= post_comment.user.name %></p>
+            <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
+            <p><%= post_comment.comment %></p>
+            <% if post_comment.user == current_user %>
+            <div>
+                <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+            </div>
+            <% end %>
+        <% end %>
+        </div>
     </div>
-    <% end %>
-<% end %>
 </div>
-
-<%= link_to "課題一覧", post_images_path %>
