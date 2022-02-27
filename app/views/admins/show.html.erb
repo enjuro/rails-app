@@ -7,7 +7,9 @@
         <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
     <% end %>
 <% elsif user_signed_in? %>
-followして
+    <div id="follow_btn_<%= @admin.id %>">
+        <%= render 'relationships/follow', admin: @admin %>
+    </div>
 <% end %>
 
 
