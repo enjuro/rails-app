@@ -1,6 +1,7 @@
 <div class="center jumbotron">
     <% if user_signed_in? %>
         <h5>フォローしているジムの課題一覧</h5>
+        <div class="card-list-container py-5">
         <% @followees.each do |followee|%>
             <% @following_post_images = followee.post_images %>
             <% @following_post_images.each do |post_image|%>
@@ -10,6 +11,7 @@
                 </div>
             <% end %>
         <% end %>
+        </div>
 
     <% elsif admin_signed_in? %>
         <h5>課題を見てみましょう！</h5>
