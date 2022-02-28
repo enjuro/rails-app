@@ -9,7 +9,8 @@
                 <tr><th>コメント数</th> <th><%=post_image.post_comments.count %><th></tr>
                 <tr><th>いいね数</th> <th><%= post_image.favorites.count %><th></tr>
             </table>
+            <h3><center>@<%= link_to post_image.admin.gym, post_image.admin %></center></h3>
+
         </div>
 <% end %>
-<h3>@<%= link_to post_image.admin.gym, post_image.admin %></h3>
 

@@ -70,3 +70,8 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+.sidebar-fixed {
+  position: sticky;
+  top: 60px;
+}

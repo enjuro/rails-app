@@ -1,26 +1,33 @@
 <h1><%= @admin.gym %></h1>
+<div class="row">
+    <div class="col-3">
+        <div class="sidebar-fixed">
+            <p> <%= attachment_image_tag @admin, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%> </p>
+            <p>ジム公式サイト：<%= @admin.url %> </p>
+            <p>紹介文：<%= @admin.bio %> </p>
 
-<p> <%= attachment_image_tag @admin, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%> </p>
-<p>ジム公式サイト：<%= @admin.url %> </p>
-<p>紹介文：<%= @admin.bio %> </p>
-
-<% if admin_signed_in? %>
-    <% if @admin.id == current_admin.id %>
-        <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
-    <% end %>
-<% elsif user_signed_in? %>
-    <div id="follow_btn_<%= @admin.id %>">
-        <%= render 'relationships/follow', admin: @admin %>
-    </div>
-<% end %>
-
-<h2>このジムにある課題</h2>
-<div class="scroll-list jscroll">
-    <% @post_images.each do |post_image| %>
-        <div class="card w-50 mx-auto mt-4 shadow-lg">
-            <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
-            <%= render 'post_images/list', post_image: post_image %>
+            <% if admin_signed_in? %>
+                <% if @admin.id == current_admin.id %>
+                    <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
+                <% end %>
+            <% elsif user_signed_in? %>
+                <div id="follow_btn_<%= @admin.id %>">
+                    <%= render 'relationships/follow', admin: @admin %>
+                </div>
+            <% end %>
         </div>
-    <% end %>
-    <%= paginate @post_images %>
+    </div>
+
+    <div class="col-9">
+        <h2>にある課題</h2>
+        <div class="scroll-list jscroll">
+            <% @post_images.each do |post_image| %>
+                <div class="card w-50 mx-auto mt-4 shadow-lg">
+                    <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
+                    <%= render 'post_images/list', post_image: post_image %>
+                </div>
+            <% end %>
+            <%= paginate @post_images %>
+        </div>
+    </div>
 </div>
