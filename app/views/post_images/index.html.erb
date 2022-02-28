@@ -1,7 +1,3 @@
-<% if admin_signed_in? %>
-    <%= link_to "課題投稿", new_post_image_path %>
-<% end %>
-
 <div class="scroll-list jscroll">
     <div class="card-list-container py-5">
     <% @post_images.each do |post_image| %>

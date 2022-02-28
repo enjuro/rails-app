@@ -1,9 +1,16 @@
 <div class="center jumbotron">
     <% if user_signed_in? %>
-        <h5>課題を探してみましょう！</h5>
-        <p>
-            <%= link_to "課題一覧", post_images_path,class: "btn btn-sm btn-primary" %>
-        </p>
+        <h5>フォローしているジムの課題一覧</h5>
+        <% @followees.each do |followee|%>
+            <% @following_post_images = followee.post_images %>
+            <% @following_post_images.each do |post_image|%>
+                <div class="card w-50 mx-auto mt-4 shadow-lg">
+                    <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
+                    <%= render 'post_images/list', post_image: post_image %>
+                </div>
+            <% end %>
+        <% end %>
+
     <% elsif admin_signed_in? %>
         <h5>課題を見てみましょう！</h5>
         <p>
@@ -40,3 +47,4 @@
 
     <% end %>
 </div>
+

@@ -5,11 +5,11 @@
                 <tr><th>ホールドの色</th> <th><%= post_image.color %></th></tr>
                 <tr><th>壁の種類</th> <th><%= wall_type_hash[post_image.wall_type] %></th></tr>
                 <tr><th>説明</th> <th><%= post_image.caption %></th></tr>
-                <tr><th>課題の期間</th> <th><%= post_image.duration %>まで<th></tr>
-                <tr><th>コメント数</th> <th><%=post_image.post_comments.count %><th></tr>
+                <tr><th>課題掲載期間</th> <th><%= post_image.duration %>まで<th></tr>
                 <tr><th>いいね数</th> <th><%= post_image.favorites.count %><th></tr>
+                <tr><th>コメント数</th> <th><%=post_image.post_comments.count %><th></tr>
             </table>
-            <h3><center>@<%= link_to post_image.admin.gym, post_image.admin %></center></h3>
+            <h3 class="center"><%= link_to post_image.admin.gym, post_image.admin %></h3>
 
         </div>
 <% end %>
