@@ -1,11 +1,12 @@
-<div class="scroll-list jscroll">
-    <div class="card-list py-5">
-    <% @posts.each do |post_image| %>
+<div class="card-list py-5">
+    <div class="scroll-list jscroll">
+
+    <% @post_images.each do |post_image| %>
         <div class="card my-3 shadow-lg">
             <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
             <%= render 'post_images/list', post_image: post_image %>
         </div>
     <% end %>
-    <%= paginate @posts %>
+    <%= paginate @post_images%>
     </div>
 </div>

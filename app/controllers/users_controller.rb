@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).order(created_at: :desc).pluck(:post_image_id)
-    @favorite_post_images = PostImage.find(favorites)
+    @post_images = PostImage.where(id: favorites).page(params[:page]).per(2)
   end
 
   def edit
