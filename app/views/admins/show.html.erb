@@ -1,6 +1,11 @@
 <h1><%= @admin.gym %></h1>
+<% if user_signed_in? %>
+    <div class="center", id="follow_btn_<%= @admin.id %>">
+        <%= render 'relationships/follow', admin: @admin %>
+    </div>
+<% end %>
 <div class="row">
-    <div class="col-3">
+    <div class="col-4">
         <div class="sidebar-fixed">
             <div class="profile-image">
                 <%= attachment_image_tag @admin, :profile_image, fallback: "no_image.jpg" %>
@@ -9,24 +14,23 @@
                 <% if @admin.id == current_admin.id %>
                     <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
                 <% end %>
-            <% elsif user_signed_in? %>
-                <div id="follow_btn_<%= @admin.id %>">
-                    <%= render 'relationships/follow', admin: @admin %>
-                </div>
             <% end %>
-            <p>ジム公式サイト：<%= @admin.url %> </p>
+            <p>フォロワー数：<%= @admin.relationships.count %></p>
             <p>紹介文：<%= @admin.bio %> </p>
+            <p><%= link_to "ジム公式サイト", @admin.url %> </p>
         </div>
     </div>
 
-    <div class="col-9">
+    <div class="col">
         <h2>課題一覧</h2>
         <div class="scroll-list jscroll">
+            <div class="card-list-container">
             <% @post_images.each do |post_image| %>
-                <div class="card w-50 mx-auto mt-4 shadow-lg">
+                <div class="card mx-auto mt-2 shadow-lg">
                     <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
                     <%= render 'post_images/list', post_image: post_image %>
                 </div>
+            </div>
             <% end %>
             <%= paginate @post_images %>
         </div>
