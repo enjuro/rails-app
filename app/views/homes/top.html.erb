@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
     <h2>フォローしているジムの課題一覧</h2>
-    <div style="margin-right:auto; margin-left:auto;", class="card-list py-3">
+    <div class="card-list py-3">
         <div class="scroll-list jscroll">
             <% @post_images.each do |post_image| %>
                 <div class="card my-2 shadow-lg">

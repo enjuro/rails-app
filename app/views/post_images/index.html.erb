@@ -1,7 +1,6 @@
 <h2>課題一覧</h2>
-<div style="margin-right:auto; margin-left:auto;", class="center card-list py-3">
+<div class="card-list py-3">
     <div class="scroll-list jscroll">
-
     <% @post_images.each do |post_image| %>
         <div class="card my-2 shadow-lg">
             <%= attachment_image_tag post_image, :image, class:"card-img-top" %>

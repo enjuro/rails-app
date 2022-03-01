@@ -8,9 +8,10 @@ class Admin < ApplicationRecord
 
   attachment :profile_image
 
-  validates :gym, presence: true
+  validates :gym, presence: true 
+  validates :bio, length: { maximum: 140 }
 
   def followed_by?(user)
     relationships.where(user_id: user.id).exists?
-end
+  end
 end

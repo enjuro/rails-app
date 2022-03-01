@@ -1,4 +1,5 @@
 <h1><%= @user.name %></h1>
+
 <div class="row">
     <div class="col-4">
         <div class="sidebar-fixed">
@@ -8,17 +9,16 @@
             <% if @user.id == current_user.id %>
                 <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
             <% end %>
-            <p>ユーザーネーム：<%= @user.name %> </p>
-            <p>自己紹介：<%= @user.bio %> </p>
+            <p><%= @user.bio %> </p>
         </div>
     </div>
 
     <div class="col">
         <h2>いいねした課題一覧</h2>
-        <div class="card-list">
+        <div class="card-list py-3">
             <div class="scroll-list jscroll">
             <% @post_images.each do |post_image| %>
-                <div class="card mx-auto my-2 shadow-lg">
+                <div class="card my-2 shadow-lg">
                     <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
                     <%= render 'post_images/list', post_image: post_image %>
                 </div>

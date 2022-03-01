@@ -1,6 +1,6 @@
 <div class="jumbotron">
 <% if @post_image.errors.any? %>
-  <%= @post_image.errors.count %>件のエラーが発生しました
+  <%= @post_image.errors.count %>件のエラーが発生しました<br>
   <% @post_image.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>

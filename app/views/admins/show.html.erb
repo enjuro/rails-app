@@ -4,6 +4,7 @@
         <%= render 'relationships/follow', admin: @admin %>
     </div>
 <% end %>
+
 <div class="row">
     <div class="col-4">
         <div class="sidebar-fixed">
@@ -15,24 +16,24 @@
                     <p><%= link_to "プロフィール編集", edit_admin_path(@admin) %></p>
                 <% end %>
             <% end %>
-            <p>フォロワー数：<%= @admin.relationships.count %></p>
-            <p>紹介文：<%= @admin.bio %> </p>
+            <p>フォロワー<b><%= @admin.relationships.count %></b>人</p>
+            <p><%= @admin.bio %> </p>
             <p><%= link_to "ジム公式サイト", @admin.url %> </p>
         </div>
     </div>
 
     <div class="col">
         <h2>課題一覧</h2>
-        <div class="scroll-list jscroll">
-            <div class="card-list">
+        <div class="card-list py-3">
+            <div class="scroll-list jscroll">
             <% @post_images.each do |post_image| %>
-                <div class="card mx-auto my-2 shadow-lg">
+                <div class="card my-2 shadow-lg">
                     <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
                     <%= render 'post_images/list', post_image: post_image %>
                 </div>
-            </div>
             <% end %>
             <%= paginate @post_images %>
+            </div>
         </div>
     </div>
 </div>
