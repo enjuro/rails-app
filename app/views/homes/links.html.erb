@@ -1,22 +1,11 @@
-<div class="card mx-auto mt-2 shadow-lg">
-<div class="card-body">
-    <div class="container">
-        <div class="row">
-            <div class="col-4 center">難易度</div>
-            <div class="col-8">  grade_hash[post_image.grade]  </div>
+<div class="scroll-list jscroll">
+    <div class="card-list py-5">
+    <% @posts.each do |post_image| %>
+        <div class="card my-3 shadow-lg">
+            <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
+            <%= render 'post_images/list', post_image: post_image %>
         </div>
-                <div class="row">
-            <div class="col">難易度</div>
-            <div class="col">  grade_hash[post_image.grade]  </div>
-        </div>        <div class="row">
-            <div class="col">難易度</div>
-            <div class="col">  grade_hash[post_image.grade]  </div>
-        </div>        <div class="row">
-            <div class="col">難易度</div>
-            <div class="col">  grade_hash[post_image.grade]  </div>
-        </div>
-
+    <% end %>
+    <%= paginate @posts %>
     </div>
-    <h3 class="center">  link_to post_image.admin.gym, post_image.admin  </h3>
-</div>
 </div>

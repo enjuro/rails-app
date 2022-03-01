@@ -8,7 +8,7 @@
     <div class="col-4">
         <div class="sidebar-fixed">
             <div class="profile-image">
-                <%= attachment_image_tag @admin, :profile_image, fallback: "no_image.jpg" %>
+                <%= attachment_image_tag @admin, :profile_image, class: "img-thumbnail", fallback: "no_image.jpg" %>
             </div>
             <% if admin_signed_in? %>
                 <% if @admin.id == current_admin.id %>
@@ -24,9 +24,9 @@
     <div class="col">
         <h2>課題一覧</h2>
         <div class="scroll-list jscroll">
-            <div class="card-list-container">
+            <div class="card-list">
             <% @post_images.each do |post_image| %>
-                <div class="card mx-auto mt-2 shadow-lg">
+                <div class="card mx-auto my-2 shadow-lg">
                     <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
                     <%= render 'post_images/list', post_image: post_image %>
                 </div>
