@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body class="d-flex flex-column vh-100">
@@ -40,7 +41,7 @@
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                <%= link_to '投稿フォーム', new_post_image_path, class: 'nav-link text-dark' %>
+                <%= link_to '課題投稿', new_post_image_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
                 <%= link_to 'マイページ', admin_path(current_admin.id), class: 'nav-link text-dark' %>
@@ -66,9 +67,9 @@
       </nav>
     </header>
     <main class="mb-auto">
-    <div class="center jumbotron" >
-    <%= yield %>
-    </div>
+      <div class="container" >
+        <%= yield %>
+      </div>
     </main>
     <footer class="bg-dark text-white pt-5 pb-4">
       <div class="container">
@@ -83,10 +84,10 @@
                 <a href="/" title="Home" class="text-white-50">トップページ</a>
               </li>
               <li>
-                <a href="/homes/about" title="About" class="text-white-50">このアプリについて</a>
+                <a href="/about" title="About" class="text-white-50">このアプリについて</a>
               </li>
               <li>
-                <a href="/homes/links" title="links" class="text-white-50">リンク</a>
+                <a href="/links" title="links" class="text-white-50">リンク</a>
               </li>
             </ul>
           </div>

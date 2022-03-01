@@ -1,15 +1,33 @@
+<div class="center jumbotron">
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>件のエラーが発生しました<br>
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <h2>プロフィール編集</h2>
 
 <%= form_with model:@user, local:true do |f| %>
-    <p><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></p>
-    <p><label for="inputImage">プロフィール画像</label></p>
-    <p><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></p>
+    <div class="profile-image">
+        <%= attachment_image_tag @user, :profile_image, class: "img-thumbnail", fallback: "no_image.jpg" %>
+    </div>
+    <div class="field">
+    <%= f.label :profile_image, "プロフィール画像" %><br />
+    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+    </div>
 
-    <p><label for="inputName">ユーザーネーム</label></p>
-    <p><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></p>
+    <div class="field">
+    <%= f.label :name, "ユーザーネーム" %><br />
+    <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+    </div>
 
-    <p><label for="inputBio">自己紹介</label></p>
-    <p><%= f.text_area :bio, :size=>"60x5", placeholder:"自己紹介"%></p>
+    <div class="field">
+    <%= f.label :bio, "bio" %><br />
+    <%= f.text_area :bio, :size=>"60x5", placeholder:"bio"%>
+    </div>
 
-    <p><%= f.submit "変更を保存",data: { disable_with: '送信中...' } %></p>
+    <div class="actions">
+    <%= f.submit "変更を保存",data: { disable_with: '送信中...' } %>
+    </div>
 <% end %>
+</div>

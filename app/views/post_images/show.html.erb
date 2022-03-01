@@ -1,32 +1,45 @@
 <div class="row">
-    <div class="col-9">
-        <%= render 'post_images/list', post_image: @post_image %>
+    <%= attachment_image_tag @post_image, :image, class:"card-img-top" %>
+    <div class="col-md-6">
+        <div class="card mx-auto my-2 shadow-lg">
+            <%= render 'post_images/list', post_image: @post_image %>
+        </div>
     </div>
 
-    <div class="col-3">
+    <div class="col-md-6">
         <% if user_signed_in? %>
-            <div id="favorite_btn_<%= @post_image.id %>">
-                <%= render 'favorites/favorite', post_image: @post_image %>
+            <div class="center row">
+                <div style="margin-top:auto; margin-bottom:auto;", class="col nowrap">
+                    <div id="favorite_btn_<%= @post_image.id %>">
+                        <%= render 'favorites/favorite', post_image: @post_image %>
+                    </div>
+                </div>
+                <div class="col py-3 center">
+                    <div class="input-group mb-3">
+                        <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
+                            <%= f.text_area :comment, class: "form-control mb-3", placeholder: "コメントを書く" %>
+                            <%= f.submit "送信する", class: 'btn btn-sm btn-primary', data: { disable_with: '送信中…' } %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-            <div>
-                <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
-                    <%= f.text_area :comment, rows:'5',placeholder: "コメントを書く" %><br>
-                    <%= f.submit "送信する", class: 'btn btn-sm btn-primary', data: { disable_with: '送信中…' } %>
-                <% end %>
-            </div>
-        <% elsif %>
-            <p>いいね件数：<%= @post_image.favorites.count %></p>
         <% end %>
 
         <div>
-        <p>コメント件数：<%= @post_image.post_comments.count %></p>
+        <h2><%= @post_image.post_comments.count %> コメント</h2>
         <% @post_image.post_comments.reverse.each do |post_comment| %>
-            <p><%= post_comment.user.name %></p>
-            <p><%= post_comment.created_at.strftime('%Y/%m/%d') %></p>
-            <p><%= post_comment.comment %></p>
+            <table class="table">
+            <tr class="row">
+                <td class="col-2"><%= post_comment.user.name %></td>
+                <td class="col"><%= post_comment.comment %></td>
+            <tr>
+            </table>
+            <div class="center">
+            <%= post_comment.created_at.strftime('%Y/%m/%d') %>
             <% if post_comment.user == current_user %>
             <div>
                 <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+            </div>
             </div>
             <% end %>
         <% end %>

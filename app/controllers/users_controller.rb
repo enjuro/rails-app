@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     favorites = Favorite.where(user_id: @user.id).order(created_at: :desc).pluck(:post_image_id)
-    @favorite_post_images = PostImage.find(favorites)
+    @post_images = PostImage.where(id: favorites).page(params[:page]).per(2)
   end
 
   def edit
@@ -11,8 +11,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
 
 

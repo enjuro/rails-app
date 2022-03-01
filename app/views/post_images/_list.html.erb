@@ -1,17 +1,18 @@
-<div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= link_to post_image_path(post_image.id) do %>
-    <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
+<%= link_to post_image_path(post_image.id) do %>
         <div class="card-body">
             <table class="table">
-                <tr><th>難易度</th> <th><%= grade_hash[post_image.grade] %></tr>
-                <tr><th>ホールドの色</th> <th><%= post_image.color %></th></tr>
-                <tr><th>壁の種類</th> <th><%= wall_type_hash[post_image.wall_type] %></th></tr>
-                <tr><th>説明</th> <th><%= post_image.caption %></th></tr>
-                <tr><th>課題の期間</th> <th><%= post_image.duration %>まで<th></tr>
-                <tr><th>コメント数</th> <th><%=post_image.post_comments.count %><th></tr>
-                <tr><th>いいね数</th> <th><%= post_image.favorites.count %><th></tr>
+                <tbody class="container">
+                    <tr class="row"><td class="center nowrap col-5">難易度</td> <td class="col"><%= grade_hash[post_image.grade] %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">色</td> <td class="col"><%= post_image.color %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">壁</td> <td class="col"><%= wall_type_hash[post_image.wall_type] %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">掲載期間</td> <td class="col"><%= post_image.duration %>まで</td></tr>
+                    <tr class="row"><td class="center nowrap col-5">説明</td> <td class="col"><%= post_image.caption %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">いいね</td> <td class="col"><%= post_image.favorites.count %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">コメント</td> <td class="col"><%=post_image.post_comments.count %></td></tr>
+                </tbody>
             </table>
+            <h3 class="center"><%= link_to "@ #{post_image.admin.gym}", post_image.admin %></h3>
+
         </div>
-    <% end %>
-    <p>@<%= link_to post_image.admin.gym, post_image.admin %></p>
-</div>
+<% end %>
+

@@ -1,17 +1,38 @@
-<h2>プロフィール編集</h2>
-<%= form_with model:@admin, local:true do |f| %>
-    <p><%= attachment_image_tag @admin, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%></p>
-    <p><label for="inputImage">プロフィール画像（ジムを代表する画像）</label></p>
-    <p><%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %></p>
-
-    <p><label for="inputGym">ジムの名称</label></p>
-    <p><%= f.text_field :gym, placeholder:"ジム名"%></p>
-
-    <p><label for="inputURL">ジム公式サイトのURL</label></p>
-    <p><%= f.text_field :url, placeholder:"url"%></p>
-
-    <p><label for="inputBio">紹介文</label></p>
-    <p><%= f.text_field :bio, placeholder:"bio"%></p>
-
-    <p><%= f.submit "変更を保存",data: { disable_with: '送信中...' } %></p>
+<div class="center jumbotron">
+<% if @admin.errors.any? %>
+  <%= @admin.errors.count %>件のエラーが発生しました<br>
+  <% @admin.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
 <% end %>
+<h2>プロフィール編集</h2>
+
+<%= form_with model:@admin, local:true do |f| %>
+    <div class="profile-image">
+        <%= attachment_image_tag @admin, :profile_image, class: "img-thumbnail", fallback: "no_image.jpg" %>
+    </div>
+    <div class="field">
+    <%= f.label :profile_image, "プロフィール画像" %><br />
+    <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+    </div>
+
+    <div class="field">
+    <%= f.label :gym, "ジム名称" %><br />
+    <%= f.text_field :gym, placeholder:"ジム名"%>
+    </div>
+
+    <div class="field">
+    <%= f.label :url, "公式サイトURL" %><br />
+    <%= f.text_field :url, placeholder:"url"%>
+    </div>
+
+    <div class="field">
+    <%= f.label :bio, "bio" %><br />
+    <%= f.text_area :bio, :size=>"60x5", placeholder:"bio" %>
+    </div>
+
+    <div class="actions">
+    <%= f.submit "変更を保存", data: { disable_with: '送信中...' } %>
+    </div>
+<% end %>
+</div>

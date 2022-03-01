@@ -10,5 +10,6 @@ class User < ApplicationRecord
   attachment :profile_image
 
   validates :name, presence: true
+  validates :bio, length: { maximum: 140 }
 
 end
