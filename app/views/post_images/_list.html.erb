@@ -1,15 +1,15 @@
 <%= link_to post_image_path(post_image.id) do %>
         <div class="card-body">
             <table class="table">
-            <tbody class="container">
-                <tr class="row"><td class="nowrap col-3">難易度</td> <td class="col"><%= grade_hash[post_image.grade] %></td></tr>
-                <tr class="row"><td class="nowrap col-3">色</td> <td class="col"><%= post_image.color %></td></tr>
-                <tr class="row"><td class="nowrap col-3">壁</td> <td class="col"><%= wall_type_hash[post_image.wall_type] %></td></tr>
-                <tr class="row"><td class="nowrap col-3">掲載期間</td> <td class="col"><%= post_image.duration %>まで</td></tr>
-                <tr class="row"><td class="nowrap col-3">説明</td> <td class="col"><%= post_image.caption %></td></tr>
-                <tr class="row"><td class="nowrap col-3">いいね</td> <td class="col"><%= post_image.favorites.count %></td></tr>
-                <tr class="row"><td class="nowrap col-3">コメント</td> <td class="col"><%=post_image.post_comments.count %></td></tr>
-            </tbody>
+                <tbody class="container">
+                    <tr class="row"><td class="center nowrap col-5">難易度</td> <td class="col"><%= grade_hash[post_image.grade] %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">色</td> <td class="col"><%= post_image.color %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">壁</td> <td class="col"><%= wall_type_hash[post_image.wall_type] %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">掲載期間</td> <td class="col"><%= post_image.duration %>まで</td></tr>
+                    <tr class="row"><td class="center nowrap col-5">説明</td> <td class="col"><%= post_image.caption %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">いいね</td> <td class="col"><%= post_image.favorites.count %></td></tr>
+                    <tr class="row"><td class="center nowrap col-5">コメント</td> <td class="col"><%=post_image.post_comments.count %></td></tr>
+                </tbody>
             </table>
             <h3 class="center"><%= link_to "@ #{post_image.admin.gym}", post_image.admin %></h3>
 

@@ -13,15 +13,18 @@
     </div>
 
 <% elsif admin_signed_in? %>
-    <h5>課題を見てみましょう！</h5>
-    <p>
-        <%= link_to "課題一覧", post_images_path,class: "btn btn-sm btn-primary" %>
-    </p>
-    <h5>ジムの課題を投稿してみましょう！</h5>
-    <p>
-    <%= link_to "課題投稿", new_post_image_path,class: "btn btn-sm btn-primary" %>
-    </p>
+    <div class="center jumbotron">
+        <h5>課題を見てみましょう！</h5>
+        <p>
+            <%= link_to "課題一覧", post_images_path,class: "btn btn-sm btn-primary" %>
+        </p>
+        <h5>ジムの課題を投稿してみましょう！</h5>
+        <p>
+        <%= link_to "課題投稿", new_post_image_path,class: "btn btn-sm btn-primary" %>
+        </p>
+    </div>
 <% else %>
+    <div class="center jumbotron">
     <div class="row">
         <div class="col-md-6">
         <h5>一般ユーザーの方はこちら</h5>
@@ -44,6 +47,7 @@
         </p>
         <small>※アカウント作成は１店舗１つまででお願いします。</small>
         </div>
+    </div>
     </div>
 
 <% end %>

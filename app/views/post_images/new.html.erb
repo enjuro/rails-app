@@ -1,9 +1,11 @@
+<div class="jumbotron">
 <% if @post_image.errors.any? %>
   <%= @post_image.errors.count %>件のエラーが発生しました
   <% @post_image.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
 <% end %>
+
 
 <div class="row justify-content-center mt-2 mb-2">
   <h1>課題投稿</h1>
@@ -39,4 +41,5 @@
     </table>
     <div class="center"><%= f.submit '投稿', class: "btn btn-primary btn-lg" %></div>
   <% end %>
+</div>
 </div>
