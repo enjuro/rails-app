@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  resources :post_images, only: [:new, :create, :index, :show, :destroy] do
+  resources :post_images, only: [:new, :create, :index,:edit, :update, :show, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end

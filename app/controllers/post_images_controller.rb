@@ -1,6 +1,6 @@
 class PostImagesController < ApplicationController
 
-    before_action :redirect_root, only: [:new, :create, :edit, :destroy]
+    before_action :redirect_root, only: [:new, :create, :edit, :update, :destroy]
 
     def new
         @post_image = PostImage.new
@@ -25,11 +25,27 @@ class PostImagesController < ApplicationController
         @post_comment = PostComment.new
     end
 
+    def edit
+        @post_image = PostImage.find(params[:id])
+    end
+
+    def update
+        @post_image = PostImage.find(params[:id])
+        if @post_image.update(post_image_params)
+            redirect_to post_image_path(@post_image.id)
+        else
+            render :edit
+        end
+    end
+
     def destroy
         @post_image = PostImage.find(params[:id])
         @post_image.destroy
         redirect_to post_images_path
     end
+
+
+
 
     private
 
@@ -42,4 +58,3 @@ class PostImagesController < ApplicationController
     end
 
 end
-
