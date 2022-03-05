@@ -1,6 +1,8 @@
 class AdminsController < ApplicationController
 
   before_action :redirect_root, only: [:edit]
+  before_action :set_q, only: [:show, :search]
+
 
   def show
     @admin = Admin.find(params[:id])
@@ -20,6 +22,9 @@ class AdminsController < ApplicationController
     end
   end
 
+  def search
+    @admins = @q.result
+  end
 
   private
 
@@ -29,6 +34,10 @@ class AdminsController < ApplicationController
 
   def redirect_root
     redirect_to root_path unless admin_signed_in?
+  end
+
+  def set_q
+    @q = Admin.ransack(params[:q])
   end
 end
 

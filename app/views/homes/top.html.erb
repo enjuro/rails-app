@@ -21,39 +21,27 @@
 <% elsif admin_signed_in? %>
     <div class="center jumbotron">
         <h5>課題を見てみましょう！</h5>
-        <p>
-            <%= link_to "課題一覧", post_images_path,class: "btn btn-sm btn-primary" %>
-        </p>
+        <p><%= link_to "課題一覧", post_images_path,class: "btn btn-sm btn-primary" %></p>
         <h5>ジムの課題を投稿してみましょう！</h5>
-        <p>
-        <%= link_to "課題投稿", new_post_image_path,class: "btn btn-sm btn-primary" %>
-        </p>
+        <p><%= link_to "課題投稿", new_post_image_path,class: "btn btn-sm btn-primary" %></p>
     </div>
 <% else %>
     <div class="center jumbotron">
-    <div class="row">
-        <div class="col-md-6">
-        <h5>一般ユーザーの方はこちら</h5>
-        <p>
-            <%= link_to "新規登録", new_user_registration_path,class: "btn btn-sm btn-primary" %>
-        </p>
-        <p>
-            <%= link_to "ログイン", new_user_session_path,class: "btn btn-sm btn-primary" %>
-        </p>
+        <div class="row">
+            <div class="col-md-6">
+            <h5>一般ユーザーの方はこちら</h5>
+            <p><%= link_to "新規登録", new_user_registration_path, class: "btn btn-sm btn-primary" %></p>
+            <p><%= link_to "ログイン", new_user_session_path, class: "btn btn-sm btn-primary" %></p>
 
-        </div>
-        <div class="col-md-6">
-        <h5>ジム関係者の方はこちら</h5>
+            </div>
+            <div class="col-md-6">
+            <h5>ジム関係者の方はこちら</h5>
 
-        <p>
-            <%= link_to "ジム関係者新規登録", new_admin_registration_path,class: "btn btn-sm btn-secondary" %>
-        </p>
-        <p>
-            <%= link_to "ジム関係者ログイン", new_admin_session_path,class: "btn btn-sm btn-secondary" %>
-        </p>
-        <small>※アカウント作成は１店舗１つまででお願いします。</small>
+            <p><%= link_to "ジム関係者新規登録", new_admin_registration_path, class: "btn btn-sm btn-secondary" %></p>
+            <p><%= link_to "ジム関係者ログイン", new_admin_session_path, class: "btn btn-sm btn-secondary" %></p>
+            <small>※アカウント作成は１店舗１つまででお願いします。</small>
+            </div>
         </div>
-    </div>
     </div>
 
 <% end %>

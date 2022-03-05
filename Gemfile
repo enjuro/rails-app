@@ -12,6 +12,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'ransack'
 # Use mysql as the database for Active Record
 
 # Use Puma as the app server
@@ -70,5 +71,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  gem 'pg', "~> 0.21.0"
+  gem 'pg'
 end

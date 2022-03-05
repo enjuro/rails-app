@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   end
 
   resources :admins, only: [:show, :edit, :update] do
+    collection do
+      get 'search'
+    end
     resource :relationships, only: [:create, :destroy]
   end
 end
