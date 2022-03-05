@@ -1,16 +1,22 @@
 <% if user_signed_in? %>
     <h2>フォローしているジムの課題一覧</h2>
-    <div class="card-list py-3">
-        <div class="scroll-list jscroll">
-            <% @post_images.each do |post_image| %>
-                <div class="card my-2 shadow-lg">
-                    <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
-                    <%= render 'post_images/list', post_image: post_image %>
-                </div>
-            <% end %>
-            <%= paginate @post_images %>
+    <% if @post_images.any? %>
+        <div class="card-list py-3">
+            <div class="scroll-list jscroll">
+                <% @post_images.each do |post_image| %>
+                    <div class="card my-2 shadow-lg">
+                        <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
+                        <%= render 'post_images/list', post_image: post_image %>
+                    </div>
+                <% end %>
+                <%= paginate @post_images %>
+            </div>
         </div>
-    </div>
+    <% else %>
+        <div class="center jumbotron">
+        <h5>課題一覧からジムの投稿を探し、気に入ったジムがあればフォローしてみましょう！</h5>
+    <%end%>
+
 
 <% elsif admin_signed_in? %>
     <div class="center jumbotron">
