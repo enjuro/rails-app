@@ -1,3 +1,27 @@
-<% @admins.each do |admin| %>
-    <%= link_to admin.gym, admin_path(admin.id), class: 'nav-link text-dark' %>
-<% end %>
+<div class="jumbotron">
+
+    <%= search_form_for @q, url: search_admins_path do |f| %>
+        <%= f.label :gym_cont, 'ジム名称' %>
+        <%= f.search_field :gym_cont %>
+        <%= f.submit '検索' %>
+    <% end %>
+
+    <% @admins.each do |admin| %>
+        <%= link_to admin_path(admin.id) do %>
+        <table class="table">
+        <tbody class="container">
+        <tr class="row">
+            <td class="col">
+                <div class="profile-image-tn">
+                    <%= attachment_image_tag admin, :profile_image, class: "img-thumbnail", fallback: "no_image.jpg" %>
+                </div>
+            </td>
+            <td class="col">
+                <h1 class="mt-5"><%= admin.gym %></h1>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+        <% end %>
+    <% end %>
+</div>

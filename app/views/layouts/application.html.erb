@@ -25,6 +25,9 @@
               <li class="nav-item">
                 <b><%= link_to "課題一覧", post_images_path, class: 'nav-link text-dark' %></b>
               </li>
+              <li class="nav-item">
+                <%= link_to 'ジム検索', search_admins_path, class: 'nav-link text-dark' %>
+              </li>
 
             <% if user_signed_in? %>
               <li class="nav-item">

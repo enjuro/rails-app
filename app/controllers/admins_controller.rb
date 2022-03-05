@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
 
   before_action :redirect_root, only: [:edit]
-  before_action :set_q, only: [:show, :search]
+  before_action :set_q, only: [:search]
 
 
   def show

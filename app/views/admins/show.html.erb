@@ -4,15 +4,6 @@
         <%= render 'relationships/follow', admin: @admin %>
     </div>
 <% end %>
-
-
-<%= search_form_for @q, url: search_admins_path do |f| %>
-    <%= f.label :gym_cont, 'ジム名称' %>
-    <%= f.search_field :gym_cont %>
-    <br>
-    <%= f.submit '検索' %>
-<% end %>
-
 <div class="row">
     <div class="col-4">
         <div class="sidebar-fixed">
