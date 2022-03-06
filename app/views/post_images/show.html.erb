@@ -1,5 +1,7 @@
 <div class="row">
-    <%= attachment_image_tag @post_image, :image, class:"card-img-top" %>
+    <% @post_image.images.each do |image| %>
+        <%= attachment_image_tag image, :image, class: "card-img-top" %>
+    <% end %>
     <div class="col-md-6">
         <div class="card mx-auto my-2 shadow-lg">
             <%= render 'post_images/list', post_image: @post_image %>

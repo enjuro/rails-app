@@ -1,10 +1,10 @@
 class PostImage < ApplicationRecord
     belongs_to :admin
-    attachment :image
     has_many :post_comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
+    has_many :images, dependent: :destroy
+    accepts_attachments_for :images, attachment: :image
 
-    validates :image, presence: true
     validates :caption, presence: true
     validates :grade, presence: true
     validates :color, presence: true

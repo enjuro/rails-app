@@ -47,10 +47,11 @@ class PostImagesController < ApplicationController
     private
 
     def post_image_params
-        params.require(:post_image).permit(:grade, :color, :wall_type, :image, :caption, :duration)
+        params.require(:post_image).permit(:grade, :color, :wall_type, :caption, :duration, images_images: [])
     end
 
     def redirect_root
         redirect_to root_path unless admin_signed_in?
     end
+
 end
