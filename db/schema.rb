@@ -55,9 +55,12 @@ ActiveRecord::Schema.define(version: 2022_03_06_054513) do
   end
 
   create_table "post_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "preview_image_id"
+    t.string "title"
     t.text "caption"
     t.string "grade"
     t.string "color"
+    t.string "tape"
     t.string "wall_type"
     t.integer "admin_id"
     t.date "duration"

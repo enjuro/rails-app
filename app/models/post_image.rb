@@ -3,9 +3,9 @@ class PostImage < ApplicationRecord
     has_many :post_comments, dependent: :destroy
     has_many :favorites, dependent: :destroy
     has_many :images, dependent: :destroy
+    attachment :preview_image
     accepts_attachments_for :images, attachment: :image
 
-    validates :caption, presence: true
     validates :grade, presence: true
     validates :color, presence: true
     validates :wall_type, presence: true
