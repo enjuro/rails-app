@@ -47,7 +47,7 @@ class PostImagesController < ApplicationController
     private
 
     def post_image_params
-        params.require(:post_image).permit(:preview_image, :grade, :color, :tape, :wall_type, :caption, :duration, images_images: [])
+        params.require(:post_image).permit(:preview_image, :title, :grade, :color, :tape, :wall_type, :caption, :duration, images_images: [])
     end
 
     def redirect_root

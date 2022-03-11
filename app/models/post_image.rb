@@ -7,7 +7,9 @@ class PostImage < ApplicationRecord
     accepts_attachments_for :images, attachment: :image
 
     validates :grade, presence: true
+    validates :tape, presence: true
     validates :color, presence: true
+    validates :tape, presence: true
     validates :wall_type, presence: true
 
     def favorited_by?(user)

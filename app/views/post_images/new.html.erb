@@ -14,7 +14,7 @@
   <%= form_with model: @post_image, local:true do |f| %>
     <table class="table">
       <tr>
-        <th>プレビュー画像</th>
+        <th>プレビュー画像*</th>
         <td><%= f.attachment_field :preview_image %></td>
       </tr>
       <tr>
@@ -26,19 +26,19 @@
         <td><%= f.text_field :title %></td>
       </tr>
       <tr>
-        <th>難易度</th>
+        <th>難易度*</th>
         <td><%= f.select :grade, grade_hash.invert, include_blank: '選択' %></td>
       </tr>
       <tr>
-        <th>テープの色、形</th>
+        <th>テープの色、形*</th>
         <td><%= f.text_field :tape %></td>
       </tr>
       <tr>
-        <th>ホールドの色</th>
+        <th>ホールドの色*</th>
         <td><%= f.text_field :color %></td>
       </tr>
       <tr>
-        <th>壁の種類</th>
+        <th>壁の種類*</th>
         <td><%= f.select :wall_type, wall_type_hash.invert, include_blank: "選択" %></td>
       </tr>
       <tr>
