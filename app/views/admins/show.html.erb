@@ -27,7 +27,7 @@
             <div class="scroll-list jscroll">
             <% @post_images.each do |post_image| %>
                 <div class="card my-2 shadow-lg">
-                    <%= attachment_image_tag post_image, :image, class:"card-img-top" %>
+                    <%= attachment_image_tag post_image, :preview_image, class:"card-img-top" %>
                     <%= render 'post_images/list', post_image: post_image %>
                 </div>
             <% end %>
