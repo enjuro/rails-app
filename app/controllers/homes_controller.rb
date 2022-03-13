@@ -8,7 +8,6 @@ class HomesController < ApplicationController
     end
 
     def links
-
     end
 
     def about

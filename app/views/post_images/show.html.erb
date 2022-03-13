@@ -1,24 +1,24 @@
-
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <%= attachment_image_tag @post_image, :preview_image, class: "d-block w-100" %>
+<div class="container">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <%= attachment_image_tag @post_image, :preview_image, class: "d-block w-100" %>
+                </div>
+            <% @post_image.images.each do |image| %>
+                <div class="carousel-item">
+                    <%= attachment_image_tag image, :image, class: "d-block w-100" %>
+                </div>
+            <% end %>
         </div>
-
-        <% @post_image.images.each do |image| %>
-            <div class="carousel-item">
-                <%= attachment_image_tag image, :image, class: "d-block w-100" %>
-            </div>
-        <% end %>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">前</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">次</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">前</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">次</span>
-    </button>
 </div>
 
 
